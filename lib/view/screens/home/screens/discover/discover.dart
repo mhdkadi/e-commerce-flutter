@@ -21,7 +21,7 @@ class _DiscoverState extends State<Discover> {
     final ProductsModel _productsModel =
         Provider.of<ProductsModel>(context, listen: false);
     if (_productsModel.productsList.length == 0) _productsModel.getProducts();
-    print(_productsModel.productsList.length);
+
     super.initState();
   }
 
@@ -87,7 +87,6 @@ class _DiscoverState extends State<Discover> {
                       scrollDirection: Axis.horizontal,
                       itemCount: _productsModel.productsList.length,
                       itemBuilder: (context, index) {
-                        print('PopularListView');
                         return PopularListView(
                             imageUrl:
                                 _productsModel.productsList[index].imageUrl,
@@ -110,7 +109,6 @@ class _DiscoverState extends State<Discover> {
                       scrollDirection: Axis.horizontal,
                       itemCount: categories.length,
                       itemBuilder: (context, index) {
-                        print('CategorieWidget');
                         return CategorieWidget(
                           categorie: categories[index],
                         );
@@ -137,7 +135,6 @@ class _DiscoverState extends State<Discover> {
                     scrollDirection: Axis.vertical,
                     itemCount: _productsModel.productsList.length,
                     itemBuilder: (context, index) {
-                      print('DiscoverListView');
                       return DiscoverListView(
                           imageUrl: _productsModel.productsList[index].imageUrl,
                           title: _productsModel.productsList[index].title,

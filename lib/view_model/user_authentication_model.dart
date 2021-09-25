@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class UserAuthentication with ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -20,13 +20,13 @@ class UserAuthentication with ChangeNotifier {
 
   void changePassword({required String password}) {
     _password = password;
-
+    print(_password);
     notifyListeners();
   }
 
   void changeConformPassword({required String conformPassword}) {
     _conformPassword = conformPassword;
-
+    print(_conformPassword);
     notifyListeners();
   }
 

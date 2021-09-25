@@ -1,4 +1,6 @@
+import 'package:e_commerce_app/view/screens/home/screens/account.dart';
 import 'package:e_commerce_app/view/screens/home/screens/discover/discover.dart';
+import 'package:e_commerce_app/view/screens/home/screens/favorite.dart';
 import 'package:e_commerce_app/view/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 
@@ -62,9 +64,9 @@ class _HomeScreenState extends State<HomeScreen> {
           physics: const NeverScrollableScrollPhysics(),
           children: const [
             Discover(),
-            Center(child: Text('1')),
+            FavoriteScreen(),
             Center(child: Text('3')),
-            Center(child: Text('4')),
+            AccountScreen(),
           ],
         ),
       ),

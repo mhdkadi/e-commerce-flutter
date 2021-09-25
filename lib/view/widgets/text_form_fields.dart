@@ -21,6 +21,7 @@ TextFormField customPasswordFormField({required BuildContext context}) {
       } else if (value.length >= 6) {
         _errorModel.removeError(error: kShortPassError);
       }
+      _userAuthentication.changePassword(password: value);
     },
     validator: (value) {
       if (value!.isEmpty) {
@@ -55,6 +56,7 @@ TextFormField customEmailFormField({required BuildContext context}) {
       } else if (emailValidatorRegExp.hasMatch(value)) {
         _errorModel.removeError(error: kInvalidEmailError);
       }
+      _userAuthentication.changeEmail(email: value);
     },
     validator: (value) {
       if (value!.isEmpty) {

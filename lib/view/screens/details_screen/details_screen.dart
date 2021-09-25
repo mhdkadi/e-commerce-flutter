@@ -21,6 +21,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
     if (_productsModel.favoritesList.length == 0) {
       _productsModel.getFavorite(_userAuthentication.uid);
     }
+    if (_productsModel.chartList.length == 0) {
+      _productsModel.getChart(_userAuthentication.uid);
+    }
     List _product = _productsModel.productsList
         .where((element) => element.id == widget.id)
         .toList();
@@ -145,15 +148,24 @@ class _DetailsScreenState extends State<DetailsScreen> {
               ),
             ),
             const Spacer(),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 90, vertical: 15),
-                child: Text(
-                  'Add To Chart',
-                  style: TextStyle(fontSize: 22),
-                ),
-              ),
+            Consumer<ProductsModel>(
+              builder: (context, model, child) {
+                return ElevatedButton(
+                  onPressed: () {
+                    model.addChart(
+                        anount: 5,
+                        productId: widget.id,
+                        uid: _userAuthentication.uid);
+                  },
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 90, vertical: 15),
+                    child: Text(
+                      'Add To Chart',
+                      style: TextStyle(fontSize: 22),
+                    ),
+                  ),
+                );
+              },
             ),
             const SizedBox(
               height: 15,
