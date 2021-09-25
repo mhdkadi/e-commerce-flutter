@@ -23,7 +23,7 @@ class PopularListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        //TODO GO to details page
+        Navigator.of(context).pushNamed('/DetailsScreen', arguments: id);
       },
       child: Container(
         margin: const EdgeInsets.only(right: 10),
@@ -33,14 +33,11 @@ class PopularListView extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(30),
-              child: FittedBox(
-                fit: BoxFit.contain,
-                child: Image.asset('images/image1.jpg'),
-              ),
+              child: Image.asset('images/image1.jpg'),
             ),
             Container(
               height: 300,
-              width: 200,
+              width: double.infinity,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(30)),
                 gradient: LinearGradient(

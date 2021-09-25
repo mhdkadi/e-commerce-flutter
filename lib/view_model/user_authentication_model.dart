@@ -32,8 +32,10 @@ class UserAuthentication with ChangeNotifier {
 
   String get email => _email;
   String get uid => _uid;
+
   String get password => _password;
   String get cnformPassword => _conformPassword;
+  Stream<User?> get authStateChanges => _auth.authStateChanges();
   Future<String> signIn() async {
     try {
       await _auth.signInWithEmailAndPassword(
@@ -57,8 +59,6 @@ class UserAuthentication with ChangeNotifier {
       return "Faild To Sign Up";
     }
   }
-
-  Stream<User?> get authStateChanges => _auth.authStateChanges();
 
   Future<String> signOut() async {
     try {
