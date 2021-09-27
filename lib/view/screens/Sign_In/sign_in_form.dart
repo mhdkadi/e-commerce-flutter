@@ -17,8 +17,6 @@ class _SignInFormState extends State<SignInForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    final UserAuthentication _userAuthentication =
-        Provider.of<UserAuthentication>(context, listen: false);
     return Form(
       key: _formKey,
       child: Column(
@@ -65,28 +63,32 @@ class _SignInFormState extends State<SignInForm> {
             width: double.infinity,
             height:
                 ScreenSize(context: context).getProportionateScreenHeight(56),
-            child: TextButton(
-              style: TextButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                primary: Colors.white,
-                backgroundColor: Colors.blue,
-              ),
-              onPressed: () async {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
-                  _userAuthentication.signIn();
-                }
+            child: Consumer<UserAuthentication>(
+              builder: (context, model, child) {
+                return TextButton(
+                  style: TextButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    primary: Colors.white,
+                    backgroundColor: Colors.blue,
+                  ),
+                  onPressed: () async {
+                    if (_formKey.currentState!.validate()) {
+                      _formKey.currentState!.save();
+                      model.signIn();
+                    }
+                  },
+                  child: Text(
+                    "Continue",
+                    style: TextStyle(
+                      fontSize: ScreenSize(context: context)
+                          .getProportionateScreenWidth(17),
+                      color: Colors.white,
+                    ),
+                  ),
+                );
               },
-              child: Text(
-                "Continue",
-                style: TextStyle(
-                  fontSize: ScreenSize(context: context)
-                      .getProportionateScreenWidth(17),
-                  color: Colors.white,
-                ),
-              ),
             ),
           ),
         ],

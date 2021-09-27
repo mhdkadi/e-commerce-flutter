@@ -7,14 +7,16 @@ class AccountScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final UserAuthentication _userAuthentication =
-        Provider.of<UserAuthentication>(context, listen: false);
     return Scaffold(
       body: Center(
-        child: TextButton(
-          child: const Text('Sign Out'),
-          onPressed: () {
-            _userAuthentication.signOut();
+        child: Consumer<UserAuthentication>(
+          builder: (context, model, child) {
+            return TextButton(
+              child: const Text('Sign Out'),
+              onPressed: () {
+                model.signOut();
+              },
+            );
           },
         ),
       ),

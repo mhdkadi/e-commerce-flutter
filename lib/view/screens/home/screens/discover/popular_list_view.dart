@@ -1,29 +1,20 @@
+import 'package:e_commerce_app/models/products_model.dart';
 import 'package:flutter/material.dart';
 
 class PopularListView extends StatelessWidget {
-  final String imageUrl;
-  final String title;
-  final String shortDescription;
-  final String description;
-  final String id;
-  final String price;
-  final List categories;
+  final Product product;
+
   const PopularListView({
     Key? key,
-    required this.imageUrl,
-    required this.title,
-    required this.shortDescription,
-    required this.description,
-    required this.id,
-    required this.price,
-    required this.categories,
+    required this.product,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed('/DetailsScreen', arguments: id);
+        Navigator.of(context)
+            .pushNamed('/DetailsScreen', arguments: product.productId);
       },
       child: Container(
         margin: const EdgeInsets.only(right: 10),
@@ -53,7 +44,7 @@ class PopularListView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    title,
+                    product.title,
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -67,11 +58,11 @@ class PopularListView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Text(
-                        shortDescription,
+                        product.shortDescription,
                         style: const TextStyle(color: Colors.white),
                       ),
                       Text(
-                        '\$$price',
+                        '\$${product.price}',
                         style: const TextStyle(color: Colors.white),
                       ),
                     ],

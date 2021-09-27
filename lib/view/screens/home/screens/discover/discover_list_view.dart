@@ -1,29 +1,20 @@
+import 'package:e_commerce_app/models/products_model.dart';
 import 'package:flutter/material.dart';
 
 class DiscoverListView extends StatelessWidget {
-  final String imageUrl;
-  final String title;
-  final String shortDescription;
-  final String description;
-  final String id;
-  final String price;
-  final List categories;
+  final Product product;
+
   const DiscoverListView({
     Key? key,
-    required this.imageUrl,
-    required this.title,
-    required this.shortDescription,
-    required this.description,
-    required this.id,
-    required this.price,
-    required this.categories,
+    required this.product,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed('/DetailsScreen', arguments: id);
+        Navigator.of(context)
+            .pushNamed('/DetailsScreen', arguments: product.productId);
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 10),
@@ -55,7 +46,7 @@ class DiscoverListView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title,
+                    product.title,
                     style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -66,12 +57,12 @@ class DiscoverListView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text(shortDescription),
+                      Text(product.shortDescription),
                       const SizedBox(
                         width: 10,
                       ),
                       Text(
-                        '\$$price',
+                        '\$${product.price}',
                         style: const TextStyle(color: Colors.blue),
                       ),
                     ],

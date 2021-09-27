@@ -11,23 +11,23 @@ class Wrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final UserAuthentication _userAuthentication =
-        Provider.of<UserAuthentication>(context, listen: false);
-    return StreamBuilder(
-        stream: _userAuthentication.authStateChanges,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.active) {
-            if (snapshot.data == null) {
-              return const SignInScreen();
+    return Consumer<UserAuthentication>(builder: (context, model, child) {
+      return StreamBuilder(
+          stream: model.authStateChanges,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.active) {
+              if (snapshot.data == null) {
+                return const SignInScreen();
+              } else {
+                model.setUid();
+                return const HomeScreen();
+              }
+            } else if (snapshot.connectionState == ConnectionState.waiting) {
+              return const LoadingScreen();
             } else {
-              _userAuthentication.setUid();
-              return const HomeScreen();
+              return const NoConnectionScreen();
             }
-          } else if (snapshot.connectionState == ConnectionState.waiting) {
-            return const LoadingScreen();
-          } else {
-            return const NoConnectionScreen();
-          }
-        });
+          });
+    });
   }
 }

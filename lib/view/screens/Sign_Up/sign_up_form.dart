@@ -18,8 +18,6 @@ class _SignUpFormState extends State<SignUpForm> {
 
   @override
   Widget build(BuildContext context) {
-    final UserAuthentication _userAuthentication =
-        Provider.of<UserAuthentication>(context, listen: false);
     return Form(
       key: _formKey,
       child: Column(
@@ -48,29 +46,32 @@ class _SignUpFormState extends State<SignUpForm> {
             width: double.infinity,
             height:
                 ScreenSize(context: context).getProportionateScreenHeight(56),
-            child: TextButton(
-              style: TextButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
+            child:
+                Consumer<UserAuthentication>(builder: (context, model, child) {
+              return TextButton(
+                style: TextButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  primary: Colors.white,
+                  backgroundColor: Colors.blue,
                 ),
-                primary: Colors.white,
-                backgroundColor: Colors.blue,
-              ),
-              onPressed: () async {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
-                  _userAuthentication.signUp();
-                }
-              },
-              child: Text(
-                "Continue",
-                style: TextStyle(
-                  fontSize: ScreenSize(context: context)
-                      .getProportionateScreenWidth(17),
-                  color: Colors.white,
+                onPressed: () async {
+                  if (_formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
+                    model.signUp();
+                  }
+                },
+                child: Text(
+                  "Continue",
+                  style: TextStyle(
+                    fontSize: ScreenSize(context: context)
+                        .getProportionateScreenWidth(17),
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-            ),
+              );
+            }),
           ),
         ],
       ),

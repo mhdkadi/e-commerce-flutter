@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/repository/srevice_manager.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,7 +7,6 @@ import 'package:provider/provider.dart';
 import 'core/route/routes_generater.dart';
 import 'core/themes.dart';
 import 'view_model/error_model.dart';
-import 'view_model/products_api_model.dart';
 import 'view_model/user_authentication_model.dart';
 
 void main() async {
@@ -21,7 +21,7 @@ void main() async {
           create: (_) => ErrorModel(),
         ),
         ChangeNotifierProvider(
-          create: (_) => ProductsModel(),
+          create: (_) => ServiceManager(),
         ),
         ChangeNotifierProvider(
           create: (_) => UserAuthentication(),
