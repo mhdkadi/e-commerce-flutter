@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/size_configration.dart';
-import '../../view_model/error_model.dart';
+import '../../repository/error_model.dart';
 
 class FormError extends StatelessWidget {
   const FormError({Key? key}) : super(key: key);

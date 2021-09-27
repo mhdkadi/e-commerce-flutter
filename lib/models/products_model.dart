@@ -10,7 +10,7 @@ class ProductsList {
         .decode(jsonString)
         .map(
           (product) => _productsList.add(
-            Product.fromlist(product),
+            Product.fromMap(product),
           ),
         )
         .toList();
@@ -37,15 +37,15 @@ class Product {
   final String price;
   final String shortDescription;
   final String title;
-  factory Product.fromlist(Map str) => Product.toProduct(str);
+  factory Product.fromMap(Map map) => Product.toProduct(map);
 
-  factory Product.toProduct(list) => Product(
-        productId: list["productId"],
-        categories: List<String>.from(list["categories"].map((x) => x)),
-        description: list["description"],
-        imageUrl: list["imageUrl"],
-        price: list["price"],
-        shortDescription: list["shortDescription"],
-        title: list["title"],
+  factory Product.toProduct(Map map) => Product(
+        productId: map["productId"],
+        categories: List<String>.from(map["categories"].map((x) => x)),
+        description: map["description"],
+        imageUrl: map["imageUrl"],
+        price: map["price"],
+        shortDescription: map["shortDescription"],
+        title: map["title"],
       );
 }

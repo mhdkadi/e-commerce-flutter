@@ -1,5 +1,5 @@
-import '../../../view_model/error_model.dart';
-import '../../../view_model/user_authentication_model.dart';
+import '../../repository/error_model.dart';
+import '../../repository/user_authentication_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

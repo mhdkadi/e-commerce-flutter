@@ -6,8 +6,8 @@ import 'package:provider/provider.dart';
 
 import 'core/route/routes_generater.dart';
 import 'core/themes.dart';
-import 'view_model/error_model.dart';
-import 'view_model/user_authentication_model.dart';
+import 'repository/error_model.dart';
+import 'repository/user_authentication_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

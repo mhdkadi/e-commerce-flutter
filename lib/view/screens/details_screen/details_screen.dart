@@ -1,5 +1,5 @@
 import 'package:e_commerce_app/repository/srevice_manager.dart';
-import 'package:e_commerce_app/view_model/user_authentication_model.dart';
+import 'package:e_commerce_app/repository/user_authentication_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/size_configration.dart';
-import '../../../view_model/user_authentication_model.dart';
+import '../../../repository/user_authentication_model.dart';
 import '../../widgets/error.dart';
 import '../../widgets/text_form_fields.dart';
 

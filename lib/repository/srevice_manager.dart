@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_final_fields, unused_field
 import 'dart:convert';
 
-import 'package:e_commerce_app/data/api_services.dart';
+import 'package:e_commerce_app/data/data_services.dart';
 import 'package:e_commerce_app/models/products_model.dart';
 import 'package:flutter/cupertino.dart';
 
