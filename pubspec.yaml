@@ -9,8 +9,6 @@ environment:
 dependencies:
   cached_network_image: ^3.1.0
   cupertino_icons: ^1.0.2
-  firebase_auth: ^3.1.1
-  firebase_core: ^1.6.0
   flutter:
     sdk: flutter
   http: ^0.13.3

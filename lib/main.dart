@@ -1,6 +1,5 @@
 import 'data/auth_services.dart';
 import 'repository/srevice_manager.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -9,9 +8,7 @@ import 'core/route/routes_generater.dart';
 import 'core/themes.dart';
 import 'repository/error_model.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+void main() {
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(
