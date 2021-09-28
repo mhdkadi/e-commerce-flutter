@@ -1,4 +1,5 @@
-import 'package:e_commerce_app/repository/srevice_manager.dart';
+import 'data/auth_services.dart';
+import 'repository/srevice_manager.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,7 +8,6 @@ import 'package:provider/provider.dart';
 import 'core/route/routes_generater.dart';
 import 'core/themes.dart';
 import 'repository/error_model.dart';
-import 'repository/user_authentication_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +24,7 @@ void main() async {
           create: (_) => ServiceManager(),
         ),
         ChangeNotifierProvider(
-          create: (_) => UserAuthentication(),
+          create: (_) => AuthServices(),
         ),
       ],
       child: const MyApp(),

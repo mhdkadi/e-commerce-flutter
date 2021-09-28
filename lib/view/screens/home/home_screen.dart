@@ -1,8 +1,9 @@
-import 'package:e_commerce_app/view/screens/home/screens/account.dart';
-import 'package:e_commerce_app/view/screens/home/screens/discover/discover.dart';
-import 'package:e_commerce_app/view/screens/home/screens/favorite.dart';
-import 'package:e_commerce_app/view/widgets/appbar.dart';
 import 'package:flutter/material.dart';
+
+import '../../widgets/appbar.dart';
+import 'screens/account.dart';
+import 'screens/discover/discover.dart';
+import 'screens/favorite.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

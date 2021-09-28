@@ -1,15 +1,15 @@
-import '../../repository/error_model.dart';
-import '../../repository/user_authentication_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/consts.dart';
+import '../../data/auth_services.dart';
+import '../../repository/error_model.dart';
 
 TextFormField customPasswordFormField({required BuildContext context}) {
   final ErrorModel _errorModel =
       Provider.of<ErrorModel>(context, listen: false);
-  final UserAuthentication _userAuthentication =
-      Provider.of<UserAuthentication>(context, listen: false);
+  final AuthServices _userAuthentication =
+      Provider.of<AuthServices>(context, listen: false);
 
   return TextFormField(
     obscureText: true,
@@ -21,7 +21,7 @@ TextFormField customPasswordFormField({required BuildContext context}) {
       } else if (value.length >= 6) {
         _errorModel.removeError(error: kShortPassError);
       }
-      //_userAuthentication.changePassword(password: value);
+      _userAuthentication.changePassword(password: value);
     },
     validator: (value) {
       if (value!.isEmpty) {
@@ -45,8 +45,8 @@ TextFormField customPasswordFormField({required BuildContext context}) {
 TextFormField customEmailFormField({required BuildContext context}) {
   final ErrorModel _errorModel =
       Provider.of<ErrorModel>(context, listen: false);
-  final UserAuthentication _userAuthentication =
-      Provider.of<UserAuthentication>(context, listen: false);
+  final AuthServices _userAuthentication =
+      Provider.of<AuthServices>(context, listen: false);
   return TextFormField(
     keyboardType: TextInputType.emailAddress,
     onSaved: (newValue) => _userAuthentication.changeEmail(email: newValue!),
@@ -80,8 +80,8 @@ TextFormField customEmailFormField({required BuildContext context}) {
 TextFormField customConformPasswordFormField({required BuildContext context}) {
   final ErrorModel _errorModel =
       Provider.of<ErrorModel>(context, listen: false);
-  final UserAuthentication _userAuthentication =
-      Provider.of<UserAuthentication>(context, listen: false);
+  final AuthServices _userAuthentication =
+      Provider.of<AuthServices>(context, listen: false);
   return TextFormField(
     obscureText: true,
     onSaved: (newVal) =>

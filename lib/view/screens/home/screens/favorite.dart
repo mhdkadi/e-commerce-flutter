@@ -1,7 +1,8 @@
-import 'package:e_commerce_app/repository/srevice_manager.dart';
-import 'package:e_commerce_app/view/screens/home/screens/discover/discover_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../../../repository/srevice_manager.dart';
+import 'discover/discover_list_view.dart';
 
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({Key? key}) : super(key: key);

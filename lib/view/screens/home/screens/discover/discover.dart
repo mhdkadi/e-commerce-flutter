@@ -1,11 +1,11 @@
-import 'package:e_commerce_app/repository/srevice_manager.dart';
-import 'package:e_commerce_app/view/screens/loading/loading_screen.dart';
-import 'package:e_commerce_app/repository/user_authentication_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../core/consts.dart';
+import '../../../../../data/auth_services.dart';
+import '../../../../../repository/srevice_manager.dart';
+import '../../../loading/loading_screen.dart';
 import 'categorie_list_view.dart';
 import 'discover_list_view.dart';
 import 'popular_list_view.dart';
@@ -21,8 +21,8 @@ class _DiscoverState extends State<Discover> {
   final TextEditingController _searchController = TextEditingController();
   @override
   void initState() {
-    final UserAuthentication _userAuthentication =
-        Provider.of<UserAuthentication>(context, listen: false);
+    final AuthServices _userAuthentication =
+        Provider.of<AuthServices>(context, listen: false);
     final ServiceManager _serviceManager =
         Provider.of<ServiceManager>(context, listen: false);
     _serviceManager.getProducts();
@@ -30,7 +30,6 @@ class _DiscoverState extends State<Discover> {
       _serviceManager.getFavorites(_userAuthentication.uid);
     });
 
-    //TODO Unhandled Exception
     super.initState();
   }
 

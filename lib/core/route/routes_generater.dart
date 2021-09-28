@@ -1,8 +1,8 @@
-import 'package:e_commerce_app/view/screens/details_screen/details_screen.dart';
 import 'package:flutter/material.dart';
 
 import '/view/screens/Sign_In/sign_in.dart';
 import '/view/screens/Sign_Up/sign_up.dart';
+import '../../view/screens/details_screen/details_screen.dart';
 import '../../view/screens/home/home_screen.dart';
 import 'wrapper.dart';
 

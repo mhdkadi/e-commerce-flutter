@@ -1,5 +1,6 @@
-import 'package:e_commerce_app/models/products_model.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../models/products_model.dart';
 
 class PopularListView extends StatelessWidget {
   final Product product;

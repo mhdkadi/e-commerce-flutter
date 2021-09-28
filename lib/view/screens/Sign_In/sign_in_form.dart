@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/size_configration.dart';
-import '../../../repository/user_authentication_model.dart';
+import '../../../data/auth_services.dart';
 import '../../widgets/error.dart';
 import '../../widgets/text_form_fields.dart';
 
@@ -63,7 +63,7 @@ class _SignInFormState extends State<SignInForm> {
             width: double.infinity,
             height:
                 ScreenSize(context: context).getProportionateScreenHeight(56),
-            child: Consumer<UserAuthentication>(
+            child: Consumer<AuthServices>(
               builder: (context, model, child) {
                 return TextButton(
                   style: TextButton.styleFrom(
@@ -76,7 +76,7 @@ class _SignInFormState extends State<SignInForm> {
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
-                      model.signIn();
+                      model.signin();
                     }
                   },
                   child: Text(

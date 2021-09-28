@@ -1,8 +1,8 @@
-import '../../../repository/user_authentication_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/size_configration.dart';
+import '../../../data/auth_services.dart';
 import '../../widgets/error.dart';
 import '../../widgets/text_form_fields.dart';
 
@@ -46,8 +46,7 @@ class _SignUpFormState extends State<SignUpForm> {
             width: double.infinity,
             height:
                 ScreenSize(context: context).getProportionateScreenHeight(56),
-            child:
-                Consumer<UserAuthentication>(builder: (context, model, child) {
+            child: Consumer<AuthServices>(builder: (context, model, child) {
               return TextButton(
                 style: TextButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -59,7 +58,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
-                    model.signUp();
+                    model.signup();
                   }
                 },
                 child: Text(

@@ -1,7 +1,8 @@
-import 'package:e_commerce_app/repository/srevice_manager.dart';
-import 'package:e_commerce_app/repository/user_authentication_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../../data/auth_services.dart';
+import '../../../repository/srevice_manager.dart';
 
 class DetailsScreen extends StatefulWidget {
   final String id;
@@ -18,7 +19,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Consumer<UserAuthentication>(
+        child: Consumer<AuthServices>(
           builder: (context, authModel, child) {
             return Consumer<ServiceManager>(
               builder: (context, serviceModel, child) {
